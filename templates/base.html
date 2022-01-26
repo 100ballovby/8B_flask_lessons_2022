@@ -7,6 +7,8 @@
     {% else %}  <!-- иначе -->
         <title>Welcome, Flask!</title>  <!-- пишу стандартный текст -->
     {% endif %}
+    <link rel="stylesheet" href="{{ url_for('static',
+            filename='css/main.css') }}">
 </head>
 <body>
 
@@ -16,9 +18,11 @@
     <li><a href="{{ url_for('about_us') }}">О нас</a></li>
 </ul>
 
-{% block content %}
-<!-- сюда подключаются страницы сайта -->
-{% endblock %}
+<div class="container">
+    {% block content %}
+        <!-- сюда подключаются страницы сайта -->
+    {% endblock %}
+</div>
 
 </body>
 </html>

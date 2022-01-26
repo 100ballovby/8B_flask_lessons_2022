@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    {% if title %}  <!-- если route передает переменную title -->
-        <title>{{ title }}</title>  <!-- То я записываю передаваемый title  -->
-    {% else %}  <!-- иначе -->
-        <title>Welcome, Flask!</title>  <!-- пишу стандартный текст -->
-    {% endif %}
-</head>
-<body>
+{% extends 'base.html' %}  <!-- расширяет базовый шаблон -->
 
-<h1>Мой первый сайт на <b>Flask</b>.</h1>  <!-- заголовок -->
-<p>Ура-ура!</p>  <!-- параграф -->
+{% block content %}
 
-</body>
-</html>
+    <h1>Главная страница</h1>
+    <p>Добро пожаловать!</p>
+
+{% endblock %}

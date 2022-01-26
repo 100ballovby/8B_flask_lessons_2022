@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}  <!-- если route передает переменную title -->
+        <title>{{ title }}</title>  <!-- То я записываю передаваемый title  -->
+    {% else %}  <!-- иначе -->
+        <title>Welcome, Flask!</title>  <!-- пишу стандартный текст -->
+    {% endif %}
+</head>
+<body>
+
+<ul>
+    <li><a href="{{ url_for('index') }}">Главная</a></li>
+    <li><a href="{{ url_for('contacts') }}">Контакты</a></li>
+    <li><a href="{{ url_for('about_us') }}">О нас</a></li>
+</ul>
+
+{% block content %}
+<!-- сюда подключаются страницы сайта -->
+{% endblock %}
+
+</body>
+</html>

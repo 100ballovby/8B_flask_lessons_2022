@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="catalog">
+
+        {% for item in items %}  <!-- для каждого товара в списке товаров -->
+            <div class="card">  <!-- создать карточку товара -->
+                <img src="{{ item['good_image'] }}" width="20%">  <!-- в картинку вставить изображение товара -->
+                <p>{{ item['good_description'] }}</p>  <!-- в параграф вставить описание товара-->
+                <h2>{{ item['good_name'] }}</h2>  <!-- в заголовок название товара -->
+                <p>{{ item['good_price'] }}</p>  <!-- в еще один параграф вставить стоимость товара -->
+            </div>
+        {% endfor %}
+
+    </section>
+{% endblock %}

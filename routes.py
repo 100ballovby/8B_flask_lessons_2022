@@ -47,4 +47,4 @@ def catalog():
             'good_image': 'https://cdn-icons-png.flaticon.com/512/971/971912.png',
         },
     ]
-    return render_template('catalog.html')
+    return render_template('catalog.html', items=goods)  # передаю список товаров в шаблон

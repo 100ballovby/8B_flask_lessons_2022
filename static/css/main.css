@@ -16,7 +16,7 @@ body {
 }
 
 .site-header {
-    padding: 0.15em; /* внутренний отступ ~16px с каждой стороны */
+    padding: 0.15em; /* внутренний отступ ~2.4px с каждой стороны */
     margin: 0;
     background: #2d60b9;
 }

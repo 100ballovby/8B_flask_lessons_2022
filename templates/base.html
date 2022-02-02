@@ -12,11 +12,13 @@
 </head>
 <body>
 
-<ul>
-    <li><a href="{{ url_for('index') }}">Главная</a></li>
-    <li><a href="{{ url_for('contacts') }}">Контакты</a></li>
-    <li><a href="{{ url_for('about_us') }}">О нас</a></li>
-</ul>
+<header class="site-header">
+    <ul class="main-menu">
+        <li><a href="{{ url_for('index') }}">Главная</a></li>
+        <li><a href="{{ url_for('contacts') }}">Контакты</a></li>
+        <li><a href="{{ url_for('about_us') }}">О нас</a></li>
+    </ul>
+</header>
 
 <div class="container">
     {% block content %}

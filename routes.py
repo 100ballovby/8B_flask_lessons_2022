@@ -1,6 +1,7 @@
 # здесь будут храниться все переходы на страницы сайта
 from flask import render_template, redirect, url_for
 from app import app
+from forms import ContactForm  # импортирую форму
 
 
 @app.route('/')  # говорит, что будет происходить, если перейти на главную страницу сайта
@@ -48,4 +49,15 @@ def catalog():
         },
     ]
     return render_template('catalog.html', items=goods)  # передаю список товаров в шаблон
+
+
+@app.route('/question', methods=['GET', 'POST'])  # форма будет работать с методами GET и POST
+def send_question():  # когда зайдут на страницу /question
+    form = ContactForm()  # создать форму
+    if form.validate_on_submit():  # если форма отправляется
+        print(form.name.data,
+              form.phone.data,
+              form.message.data)  # печатаю данные из формы
+        return redirect(url_for('send_question'))  # перенаправляю на ту же страницу
+    return render_template('send_question.html', form=form)
 

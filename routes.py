@@ -48,3 +48,4 @@ def catalog():
         },
     ]
     return render_template('catalog.html', items=goods)  # передаю список товаров в шаблон
+

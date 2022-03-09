@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <form action="" method="post">
+        {{ form.hidden_tag() }}  <!-- подставляю secret_key в форму для безопасности -->
+        <div><!-- Поле с именем пользователя -->
+            {{ form.name.label }}
+            {{ form.name }}
+        </div>
+        <div><!-- поле с номером телефона  -->
+            {{ form.phone.label }}
+            {{ form.phone }}
+        </div>
+        <div><!-- поле с сообщением -->
+            {{ form.message.label }}
+            {{ form.message }}
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+
+{% endblock %}

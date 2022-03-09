@@ -1,7 +1,8 @@
 # здесь будут храниться все переходы на страницы сайта
 from flask import render_template, redirect, url_for
-from app import app
+from app import app, db
 from forms import ContactForm  # импортирую форму
+from models import Question
 
 
 @app.route('/')  # говорит, что будет происходить, если перейти на главную страницу сайта
@@ -55,9 +56,12 @@ def catalog():
 def send_question():  # когда зайдут на страницу /question
     form = ContactForm()  # создать форму
     if form.validate_on_submit():  # если форма отправляется
-        print(form.name.data,
-              form.phone.data,
-              form.message.data)  # печатаю данные из формы
+        quest = Question(
+            username=form.name.data,
+            phone=form.phone.data,
+            messaage=form.message.data)  #записываю данные из формы в класс Question
+        db.session.add(quest)  # добавляю вопрос в базу данных
+        db.session.commit()  # применя изменения
         return redirect(url_for('send_question'))  # перенаправляю на ту же страницу
     return render_template('send_question.html', form=form)
 

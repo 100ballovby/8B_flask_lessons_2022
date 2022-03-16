@@ -2,7 +2,7 @@ from app import db
 from datetime import datetime
 
 
-class Question(db.Model):
+class Questions(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), nullable=False)
     phone = db.Column(db.String(50), nullable=False)

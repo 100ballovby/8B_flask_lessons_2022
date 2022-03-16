@@ -2,7 +2,7 @@
 from flask import render_template, redirect, url_for
 from app import app, db
 from forms import ContactForm  # импортирую форму
-from models import Question
+from models import Questions
 
 
 @app.route('/')  # говорит, что будет происходить, если перейти на главную страницу сайта
@@ -56,10 +56,10 @@ def catalog():
 def send_question():  # когда зайдут на страницу /question
     form = ContactForm()  # создать форму
     if form.validate_on_submit():  # если форма отправляется
-        quest = Question(
+        quest = Questions(
             username=form.name.data,
             phone=form.phone.data,
-            messaage=form.message.data)  #записываю данные из формы в класс Question
+            message=form.message.data)  #записываю данные из формы в класс Question
         db.session.add(quest)  # добавляю вопрос в базу данных
         db.session.commit()  # применя изменения
         return redirect(url_for('send_question'))  # перенаправляю на ту же страницу

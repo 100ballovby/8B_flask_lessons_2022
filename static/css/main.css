@@ -46,3 +46,9 @@ body {
     background-color: #234a92;
     /* text-decoration: underline;  */
 }
+
+.message {
+    padding: 1em;
+    margin: 0.5em;
+    background: #f3f3f3;
+}

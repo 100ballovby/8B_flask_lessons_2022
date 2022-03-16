@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Messages</h1>
+    {% for question in items %}
+        <div class="message">
+            <h3>{{ question.username }}</h3>
+            <p class="date">{{ question.created_at }}</p>
+            <p>{{ question.message }}</p>
+            <p class="status">{{ question.status }}</p>
+            <a href="" class="btn">Изменить</a>
+        </div>
+    {% endfor %}
+{% endblock %}

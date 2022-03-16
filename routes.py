@@ -65,3 +65,8 @@ def send_question():  # когда зайдут на страницу /question
         return redirect(url_for('send_question'))  # перенаправляю на ту же страницу
     return render_template('send_question.html', form=form)
 
+
+@app.route('/show-questions')
+def show_questions():
+    questions = Questions.query.order_by(Questions.created_at).all()  # достать все вопросы из БД сортируя по дате
+    return render_template('show_questions.html', items=questions)

@@ -70,3 +70,15 @@ def send_question():  # когда зайдут на страницу /question
 def show_questions():
     questions = Questions.query.order_by(Questions.created_at).all()  # достать все вопросы из БД сортируя по дате
     return render_template('show_questions.html', items=questions)
+
+
+@app.route('/show-quest/update/<int:id>', methods=['GET', 'POST'])
+def update_question(id):
+    question = Questions.query.get_or_404(id)  # если id вопроса не будет найдет, вылетит ошибка 404
+    form = ContactForm()
+    if form.validate_on_submit():
+        question.status = form.status.data
+        db.session.commit()
+        return redirect(url_for('show_questions'))
+    else:
+        return render_template('update_question.html', form=form, quest=question)

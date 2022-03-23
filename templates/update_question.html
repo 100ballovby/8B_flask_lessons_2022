@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{ form.name.label }}
+            {{ quest.username }}
+        </div>
+        <div class="mb-3">
+            {{ quest.message }}
+        </div>
+        <div class="mb-3">
+            {{ form.status }} {{ form.status.label }}
+        </div>
+        <div class="mb-3">
+            {{ form.submit() }}
+        </div>
+    </form>
+{% endblock %}
